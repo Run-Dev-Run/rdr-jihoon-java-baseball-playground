@@ -8,6 +8,8 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
 
@@ -30,6 +32,13 @@ public class SetTest {
     assertThat(actual).isNotNull();
     assertThat(actual).isNotEqualTo(4); // Set은 중복을 허용하지 않는다.
     assertThat(actual).isEqualTo(3);
+  }
+
+  @DisplayName("contains()는 주어진 인자(param)의 존재여부를 반환합니다.")
+  @ParameterizedTest(name ="{index} {displayName} param={0} ")
+  @ValueSource(ints = {1,2,3})
+  void test_contains(Integer param) {
+    assertThat(numbers.contains(param)).isTrue();
   }
 
 }
