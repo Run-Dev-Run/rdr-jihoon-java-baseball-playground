@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class SetTest {
+
   private Set<Integer> numbers;
 
   @BeforeEach
@@ -21,5 +22,14 @@ public class SetTest {
     numbers.add(3);
   }
 
-  // Test Case 구현
+  @Test
+  @DisplayName("size()는 Set의 크기를 반환합니다.")
+  void test_size() {
+    int actual = numbers.size();
+
+    assertThat(actual).isNotNull();
+    assertThat(actual).isNotEqualTo(4); // Set은 중복을 허용하지 않는다.
+    assertThat(actual).isEqualTo(3);
+  }
+
 }
