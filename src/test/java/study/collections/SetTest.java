@@ -1,7 +1,7 @@
 package study.collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class SetTest {
@@ -34,11 +35,19 @@ public class SetTest {
     assertThat(actual).isEqualTo(3);
   }
 
-  @DisplayName("contains()는 주어진 인자(param)의 존재여부를 반환합니다.")
-  @ParameterizedTest(name ="{index} {displayName} param={0} ")
-  @ValueSource(ints = {1,2,3})
-  void test_contains(Integer param) {
+  @DisplayName("[V1] contains()는 주어진 인자(param)의 존재여부를 반환합니다.")
+  @ParameterizedTest(name = "{index} {displayName} param={0} ")
+  @ValueSource(ints = {1, 2, 3})
+  void test_contains_v1(Integer param) {
     assertThat(numbers.contains(param)).isTrue();
+  }
+
+  @DisplayName("[V2] contains()는 주어진 인자(param)의 존재여부를 반환합니다.")
+  @ParameterizedTest(name = "{index} {displayName} param={0} ")
+  @CsvSource(value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
+  void test_contains_v2(int param, boolean expected) {
+    boolean actualValue = numbers.contains(param);
+    assertEquals(expected, actualValue);
   }
 
 }
