@@ -52,7 +52,7 @@ public class Game {
             return false;
         }
 
-        return false;
+        return true;
     }
 
 }
