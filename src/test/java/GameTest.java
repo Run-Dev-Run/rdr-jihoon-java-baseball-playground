@@ -26,4 +26,16 @@ class GameTest {
         assertThat(actual).isEqualTo(expect);
     }
 
+    @Test
+    @DisplayName("getRandomNumber()는 3자리의 난수를 생성합니다.")
+    void test_getRandomNumber() {
+
+        int randomNumber1 = game.getRandomNumber();
+        int randomNumber2 = game.getRandomNumber();
+
+        assertThat(randomNumber1).isBetween(110, 1000);
+        assertThat(randomNumber2).isBetween(110, 1000);
+        assertThat(randomNumber1).isNotEqualTo(randomNumber2);
+    }
+
 }
