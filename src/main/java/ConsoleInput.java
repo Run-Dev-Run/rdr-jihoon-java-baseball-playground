@@ -6,7 +6,14 @@ public class ConsoleInput implements Input{
 
     @Override
     public int inputNumber() {
-        System.out.print(REQUEST_INPUT_NUMBER);
+        System.out.print(REQUEST_INPUT_NUMBER_MESSAGE);
+
+        return scanner.nextInt();
+    }
+
+    @Override
+    public int inputCommandNumber() {
+        System.out.print(GAME_CONTINUE_CONFIRM_MESSAGE);
 
         return scanner.nextInt();
     }

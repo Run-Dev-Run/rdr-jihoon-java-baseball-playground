@@ -18,7 +18,6 @@ public class Game {
 
         // 2. 컴퓨터는 난수를 생성한다.
         int randomNumber = getRandomNumber();
-        System.out.println(randomNumber);
 
         while (true) {
             score = new Score();
@@ -33,7 +32,17 @@ public class Game {
             output.showMessage(score.getResultString());
 
             // 5. 결과에 따라 알맞는 UI로 이동한다.
+            if (score.getStrikeCount() != 3) {
+                continue;
+            }
+            output.showGameEndMessage();
+            int commandNumber = input.inputCommandNumber();
 
+            if (commandNumber == 2) {
+                break;
+            }
+
+            randomNumber = getRandomNumber();
         }
 
     }
