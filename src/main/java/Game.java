@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Game {
 
@@ -22,6 +23,7 @@ public class Game {
         int inputNumber = inputPlayerNumber();
 
         // 2. 컴퓨터는 난수를 생성한다.
+        int randomNumber = getRandomNumber();
 
         // 3. 각 입력 값을 비교하고 점수를 계산한다.
 
@@ -42,6 +44,13 @@ public class Game {
             inputNumber = input.inputNumber();
         }
         return inputNumber;
+    }
+
+    public int getRandomNumber() {
+        int max = 1000;
+        int min = 110;
+
+        return new Random().nextInt((max - min) + 1) + min;
     }
 
     public boolean validateInputNumber(int inputNumber) {
