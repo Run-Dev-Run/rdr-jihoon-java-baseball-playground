@@ -2,7 +2,7 @@ import java.util.List;
 
 public interface Operators {
 
-    void setOperators(List<String> operatorStrArr);
+    void addOperator(String operatorStr);
 
     Operator getNextOperator();
 

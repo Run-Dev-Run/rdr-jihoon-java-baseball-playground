@@ -12,11 +12,11 @@ public class OperatorsQueue implements Operators {
     }
 
     @Override
-    public void setOperators(List<String> operatorStrArr) {
-        if (operatorStrArr.isEmpty()) {
+    public void addOperator(String operatorStr) {
+        if (operatorStr.isEmpty()) {
             throw new IllegalArgumentException("연산자가 없습니다.");
         }
-        operatorStrArr.forEach(s -> operators.add(Operator.findOperator(s)));
+        operators.add(Operator.findOperator(operatorStr));
     }
 
     @Override
