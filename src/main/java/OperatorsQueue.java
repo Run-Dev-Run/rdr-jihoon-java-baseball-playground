@@ -1,0 +1,46 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class OperatorsQueue implements Operators {
+
+    private Queue<Operator> operators = new LinkedList<>();
+
+    public Queue<Operator> getOperators() {
+        return operators;
+    }
+
+    @Override
+    public void setOperators(List<String> operatorStrArr) {
+        if (operatorStrArr.isEmpty()) {
+            throw new IllegalArgumentException("연산자가 없습니다.");
+        }
+        operatorStrArr.forEach(s -> operators.add(Operator.findOperator(s)));
+    }
+
+    @Override
+    public Operator getNextOperator() {
+        Operator operator = operators.poll();
+        if (operator == null) {
+            throw new RuntimeException("더이상 연산자가 없습니다.");
+        }
+        return operator;
+    }
+
+    @Override
+    public int operateAll(List<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            throw new IllegalArgumentException("계산할 값이 없습니다.");
+        }
+        return numbers.stream()
+            .reduce((preNum, postNum) -> getNextOperator().operate(preNum, postNum))
+            .orElseThrow(() -> new RuntimeException("계산에 실패하였습니다."));
+    }
+
+    @Override
+    public int getLength() {
+        return operators.size();
+    }
+
+}
