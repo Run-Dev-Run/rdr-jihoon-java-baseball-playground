@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class Calculator {
 
     public static final int EVEN_NUMBER = 2;
+
     private final String DELIMETER = " ";
 
     private final Input input;
@@ -51,9 +52,8 @@ public class Calculator {
     private void separateQueueData(Queue<String> queue, int position) {
         if (isEven(position)) {
             inputNumbers.addInputNumber(queue.poll());
-        } else {
-            operators.addOperator(queue.poll());
         }
+        operators.addOperator(queue.poll());
     }
 
     private boolean isEven(int number) {
