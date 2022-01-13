@@ -5,7 +5,11 @@ import java.util.Queue;
 
 public class OperatorsQueue implements Operators {
 
-    private Queue<Operator> operators = new LinkedList<>();
+    private Queue<Operator> operators;
+
+    public OperatorsQueue() {
+        operators = new LinkedList<>();
+    }
 
     public Queue<Operator> getOperators() {
         return operators;
