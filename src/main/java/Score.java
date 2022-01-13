@@ -32,6 +32,20 @@ public class Score {
         }
     }
 
+    public String makeResultMessage() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if (ballCount > 0) {
+            stringBuilder.append(ballCount + "Ball ");
+        }
+
+        if (strikeCount > 0) {
+            stringBuilder.append(strikeCount + "Strike");
+        }
+
+        return stringBuilder.toString();
+    }
+
     private void plusStrikeCount() {
         strikeCount++;
     }

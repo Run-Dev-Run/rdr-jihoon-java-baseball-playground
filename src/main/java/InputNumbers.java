@@ -7,7 +7,11 @@ public class InputNumbers {
 
     public InputNumbers() {
         inputNumbers = new ArrayList<>();
+    }
 
+    public InputNumbers(List<Integer> numbers) {
+        inputNumbers = new ArrayList<>();
+        numbers.forEach(this::addInputNumber);
     }
 
     // TODO : getter가 있어도 될까?
@@ -32,5 +36,6 @@ public class InputNumbers {
             throw new IllegalArgumentException("중복된 숫자가 존재합니다.");
         }
     }
+
 
 }
