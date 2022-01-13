@@ -12,9 +12,13 @@ public class InputNumber {
     }
 
     private void validateNumberStr(String numberStr) {
-        if (numberStr.isBlank() || !Character.isDigit(numberStr.charAt(0))) {
+        if (numberStr.isBlank() || isNotDigit(numberStr)) {
             throw new IllegalArgumentException("잘못된 형식의 숫자가 입력되었습니다.");
         }
+    }
+
+    private boolean isNotDigit(String numberStr) {
+        return !Character.isDigit(numberStr.charAt(0));
     }
 
 }
