@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class Calculator {
 
+    public static final int EVEN_NUMBER = 2;
     private final String DELIMETER = " ";
 
     private final Input input;
@@ -42,17 +43,21 @@ public class Calculator {
     }
 
     private void validateInputFormula(List<String> splitStrings) {
-        if (splitStrings.size() % 2 == 0) {
+        if (isEven(splitStrings.size())) {
             throw new IllegalArgumentException("계산식이 올바르지 않습니다.");
         }
     }
 
     private void separateQueueData(Queue<String> queue, int position) {
-        if (position % 2 == 0) {
+        if (isEven(position)) {
             inputNumbers.addInputNumber(queue.poll());
         } else {
             operators.addOperator(queue.poll());
         }
+    }
+
+    private boolean isEven(int number) {
+        return (number % EVEN_NUMBER) == 0;
     }
 
 }
