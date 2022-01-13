@@ -25,7 +25,7 @@ public class Calculator {
         this.inputNumbers = inputNumbers;
     }
 
-    public void runCalculator() {
+    public void calculate() {
         String formula = input.inputFormula();
 
         List<String> splittedStrings = Arrays.stream(formula.split(DELIMETER))

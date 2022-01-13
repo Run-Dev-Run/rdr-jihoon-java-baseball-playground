@@ -7,7 +7,7 @@ public class StringCalculatorApplication {
         InputNumbers inputNumbers = new InputNumbersList();
 
         Calculator calculator = new Calculator(input, output, operators, inputNumbers);
-        calculator.runCalculator();
+        calculator.calculate();
     }
 
 }
