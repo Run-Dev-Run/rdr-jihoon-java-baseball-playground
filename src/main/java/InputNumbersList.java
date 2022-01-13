@@ -4,13 +4,15 @@ import java.util.stream.Collectors;
 
 public class InputNumbersList implements InputNumbers {
 
-    private List<InputNumber> inputNumbers = new ArrayList<>();
+    private List<InputNumber> inputNumbers;
+
+    public InputNumbersList() {
+        inputNumbers = new ArrayList<>();
+    }
 
     @Override
     public void addInputNumber(String inputNumberStr) {
-        if (inputNumberStr.isEmpty()) {
-            throw new IllegalArgumentException("입력된 숫자가 없습니다.");
-        }
+        validateInputNumberStr(inputNumberStr);
         inputNumbers.add(new InputNumber(inputNumberStr));
     }
 
@@ -24,6 +26,12 @@ public class InputNumbersList implements InputNumbers {
     @Override
     public int getLength() {
         return inputNumbers.size();
+    }
+
+    private void validateInputNumberStr(String inputNumberStr) {
+        if (inputNumberStr.isEmpty()) {
+            throw new IllegalArgumentException("입력된 숫자가 없습니다.");
+        }
     }
 
 }
