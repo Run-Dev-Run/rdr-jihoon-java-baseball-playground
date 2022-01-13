@@ -3,7 +3,12 @@ import java.util.List;
 
 public class InputNumbers {
 
-    private final List<InputNumber> inputNumbers = new ArrayList<>();
+    private final List<InputNumber> inputNumbers;
+
+    public InputNumbers() {
+        inputNumbers = new ArrayList<>();
+
+    }
 
     // TODO : getter가 있어도 될까?
     public List<InputNumber> getInputNumbers() {
